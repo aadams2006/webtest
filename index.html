@@ -521,40 +521,99 @@
             background-color: #00a844;
         }
 
-        footer {
-            background-color: var(--background-color);
-            color: var(--text-color);
-            padding: 40px 0;
+           footer {
+        background-color: #333;
+        color: #fff;
+        padding: 40px 0 20px;
         }
-
+        
         .footer-content {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
         }
-
+        
         .footer-section {
-           .footer-section {
             flex: 1;
-            margin-right: 40px;
-        }
-
-        .footer-section h3 {
+            margin-right: 20px;
             margin-bottom: 20px;
+            min-width: 200px;
         }
-
+        
+        .footer-section h3 {
+            margin-bottom: 15px;
+        }
+        
         .footer-links {
             list-style: none;
+            padding: 0;
         }
-
+        
         .footer-links li {
             margin-bottom: 10px;
         }
-
+        
         .footer-links a {
-            color: var(--text-color);
+            color: #fff;
             text-decoration: none;
         }
+        
+        .social-links a {
+            color: #fff;
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        
+        .footer-form input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .footer-form button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            text-align: center;
+        }
 
+                .contact {
+            padding: 60px 0;
+            background-color: #f5f5f5;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+        }
+        
+        .submit-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
         .social-links {
             display: flex;
             gap: 20px;
@@ -566,18 +625,18 @@
             font-size: 24px;
         }
 
-        .chatbot {
+                .chatbot {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: var(--primary-color);
-            color: #fff;
+            background-color: #4CAF50;
+            color: white;
             padding: 10px 20px;
             border-radius: 50px;
             cursor: pointer;
             z-index: 1000;
         }
-
+        
         .chatbot-window {
             display: none;
             position: fixed;
@@ -585,43 +644,43 @@
             right: 20px;
             width: 300px;
             height: 400px;
-            background-color: var(--background-color);
+            background-color: white;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
             z-index: 1000;
         }
-
+        
         .chatbot-header {
-            background-color: var(--primary-color);
-            color: #fff;
+            background-color: #4CAF50;
+            color: white;
             padding: 10px;
             border-radius: 10px 10px 0 0;
         }
-
+        
         .chatbot-messages {
             height: 300px;
             overflow-y: auto;
             padding: 10px;
         }
-
+        
         .chatbot-input {
             display: flex;
             padding: 10px;
         }
-
+        
         .chatbot-input input {
             flex: 1;
             padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px 0 0 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
         }
-
+        
         .chatbot-input button {
-            background-color: var(--primary-color);
-            color: #fff;
-            border: none;
             padding: 5px 10px;
-            border-radius: 0 5px 5px 0;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
             cursor: pointer;
         }
 
@@ -955,15 +1014,15 @@
 </section>
 
 <section id="contact" class="contact">
-<div class="container">
-<h2>Contact Us</h2>
-<form class="contact-form">
-<input type="text" placeholder="Your Name" required>
-<input type="email" placeholder="Your Email" required>
-<textarea placeholder="Your Message" required></textarea>
-<button type="submit" class="submit-button">Send Message</button>
-</form>
-</div>
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" class="submit-button">Send Message</button>
+        </form>
+    </div>
 </section>
 </main>
 
@@ -997,13 +1056,13 @@
         </div>
         <div class="footer-section">
             <h3>Newsletter</h3>
-            <form id="newsletter-form">
+            <form id="newsletter-form" class="footer-form">
                 <input type="email" placeholder="Enter your email" required>
                 <button type="submit">Subscribe</button>
             </form>
         </div>
     </div>
-    <div class="container">
+    <div class="container copyright">
         <p>&copy; 2024 Hovr. All rights reserved.</p>
     </div>
 </footer>
@@ -1017,7 +1076,6 @@
         <button id="chatbot-send">Send</button>
     </div>
 </div>
-
 <img src="/api/placeholder/100/100" alt="Drone" class="drone" id="drone">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
