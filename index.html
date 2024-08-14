@@ -115,12 +115,12 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .features, .services,  {
+        .features, .services {
             padding: 100px 0;
             background-color: #fff;
         }
 
-        .features h2, .services h2, {
+        .features h2, .services h2 {
             text-align: center;
             font-size: 36px;
             margin-bottom: 60px;
@@ -368,6 +368,54 @@
             font-size: 24px;
         }
 
+        /* New styles for account sidebar */
+        .account-sidebar {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: #fff;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+            z-index: 1001;
+            padding: 20px;
+        }
+
+        .account-sidebar.active {
+            right: 0;
+        }
+
+        .close-sidebar {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .account-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .account-form button {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .account-form button:hover {
+            background-color: var(--secondary-color);
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 36px;
@@ -377,7 +425,7 @@
                 font-size: 18px;
             }
 
-            .feature-grid, .testimonial-grid {
+            .feature-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -407,33 +455,7 @@
                 margin-right: 0;
                 margin-bottom: 40px;
             }
-             .account-sidebar {
-            position: fixed;
-            top: 0;
-            right: -300px;
-            width: 300px;
-            height: 100%;
-            background-color: #fff;
-            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-            transition: right 0.3s ease;
-            z-index: 1001;
-            padding: 20px;
-            }
-    
-            .account-sidebar.active {
-                right: 0;
-            }
-    
-            .close-sidebar {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                font-size: 24px;
-                cursor: pointer;
-            }
-             .testimonials {
-            display: none;
-            }   
+        }
     </style>
 </head>
 <body>
@@ -461,50 +483,50 @@
         </section>
 
         <section id="features" class="features">
-    <div class="container">
-        <h2>Why Choose Hovr</h2>
-        <div class="feature-grid">
-            <div class="feature-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="22" y1="12" x2="2" y2="12"></line>
-                    <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
-                    <line x1="6" y1="16" x2="6.01" y2="16"></line>
-                    <line x1="10" y1="16" x2="10.01" y2="16"></line>
-                </svg>
-                <h3>Lightning Fast</h3>
-                <p>Deliver packages in record time with our advanced drone technology.</p>
+            <div class="container">
+                <h2>Why Choose Hovr</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="12" x2="2" y2="12"></line>
+                            <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
+                            <line x1="6" y1="16" x2="6.01" y2="16"></line>
+                            <line x1="10" y1="16" x2="10.01" y2="16"></line>
+                        </svg>
+                        <h3>Lightning Fast</h3>
+                        <p>Deliver packages in record time with our advanced drone technology.</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                            <line x1="6" y1="1" x2="6" y2="4"></line>
+                            <line x1="10" y1="1" x2="10" y2="4"></line>
+                            <line x1="14" y1="1" x2="14" y2="4"></line>
+                        </svg>
+                        <h3>Eco-Friendly</h3>
+                        <p>Reduce carbon emissions with our sustainable delivery solution.</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="22" y1="12" x2="18" y2="12"></line>
+                            <line x1="6" y1="12" x2="2" y2="12"></line>
+                            <line x1="12" y1="6" x2="12" y2="2"></line>
+                            <line x1="12" y1="22" x2="12" y2="18"></line>
+                        </svg>
+                        <h3>Precise Delivery</h3>
+                        <p>Ensure accurate deliveries with GPS-guided drones and smart tracking.</p>
+                    </div>
+                </div>
             </div>
-            <div class="feature-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                    <line x1="6" y1="1" x2="6" y2="4"></line>
-                    <line x1="10" y1="1" x2="10" y2="4"></line>
-                    <line x1="14" y1="1" x2="14" y2="4"></line>
-                </svg>
-                <h3>Eco-Friendly</h3>
-                <p>Reduce carbon emissions with our sustainable delivery solution.</p>
-            </div>
-            <div class="feature-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="22" y1="12" x2="18" y2="12"></line>
-                    <line x1="6" y1="12" x2="2" y2="12"></line>
-                    <line x1="12" y1="6" x2="12" y2="2"></line>
-                    <line x1="12" y1="22" x2="12" y2="18"></line>
-                </svg>
-                <h3>Precise Delivery</h3>
-                <p>Ensure accurate deliveries with GPS-guided drones and smart tracking.</p>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
         <section id="how-it-works" class="how-it-works">
             <div class="container">
                 <h2>How It Works</h2>
                 <div class="timeline">
-                <div class="timeline-item left">
+                    <div class="timeline-item left">
                         <div class="content">
                             <h3>Place Order</h3>
                             <p>Choose your service type and request a drone for your delivery.</p>
@@ -598,19 +620,19 @@
                     </div>
                 </div>
             </div>
-       
-                 <div class="account-sidebar" id="account-sidebar">
-                            <span class="close-sidebar" id="close-sidebar">&times;</span>
-                            <h2>Your Hovr Account</h2>
-                            <form class="account-form">
-                                <input type="email" placeholder="Email" required>
-                                <input type="password" placeholder="Password" required>
-                                <button type="submit">Log In</button>
-                            </form>
-                            <p>Don't have an account? <a href="#">Sign up</a></p>
-                        </div>
-                    </main>
-                    
+        </section>
+
+        <!-- Account sidebar -->
+        <div class="account-sidebar" id="account-sidebar">
+            <span class="close-sidebar" id="close-sidebar">&times;</span>
+            <h2>Your Hovr Account</h2>
+            <form class="account-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Log In</button>
+            </form>
+            <p>Don't have an account? <a href="#">Sign up</a></p>
+        </div>
     </main>
 
     <footer id="contact">
@@ -626,7 +648,7 @@
                     <li><a href="#how-it-works">How It Works</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#simulator">Simulator</a></li>
-                    <li><a href="#account">Account</a></li>
+                    <li><a href="#" id="footer-account-link">Account</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -754,14 +776,21 @@
             } else {
                 alert('Please enter both start and destination addresses.');
             }
-       const accountLink = document.getElementById('account-link');
+        });
+
+        // Account sidebar functionality
+        const accountLink = document.getElementById('account-link');
+        const footerAccountLink = document.getElementById('footer-account-link');
         const accountSidebar = document.getElementById('account-sidebar');
         const closeSidebar = document.getElementById('close-sidebar');
 
-        accountLink.addEventListener('click', (e) => {
+        const openSidebar = (e) => {
             e.preventDefault();
             accountSidebar.classList.add('active');
-        });
+        };
+
+        accountLink.addEventListener('click', openSidebar);
+        footerAccountLink.addEventListener('click', openSidebar);
 
         closeSidebar.addEventListener('click', () => {
             accountSidebar.classList.remove('active');
@@ -769,7 +798,7 @@
 
         // Close sidebar when clicking outside
         document.addEventListener('click', (e) => {
-            if (!accountSidebar.contains(e.target) && e.target !== accountLink) {
+            if (!accountSidebar.contains(e.target) && e.target !== accountLink && e.target !== footerAccountLink) {
                 accountSidebar.classList.remove('active');
             }
         });
