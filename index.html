@@ -62,7 +62,7 @@
             margin-right: auto;
         }
 
-        /* New Particle Background Effect */
+        /* New  Background Effect */
         #particle-container {
             position: fixed;
             width: 100%;
@@ -86,6 +86,16 @@
             opacity: 0.1;
         }
 
+        #particle-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+            
         /* Skill Progress Bars */
         .skill-bar {
             background-color: #e8491d;
@@ -95,7 +105,7 @@
     </style>
 </head>
 <body class="bg-gray-100 relative">
-    <!-- Particle Background -->
+    <!-- Particle Background Container -->
     <div id="particle-container"></div>
     
     <!-- Parallax Background -->
@@ -280,26 +290,56 @@
         </div>
     </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tsparticles/2.3.4/tsparticles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.min.js"></script>
     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
     <script>
-        // Particle Background Effect
-        tsParticles.load("particle-container", {
-            particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: "#e8491d" },
-                shape: { type: "circle" },
-                opacity: { value: 0.5, random: false },
-                size: { value: 3, random: true },
-                line_linked: { enable: true, distance: 150, color: "#e8491d", opacity: 0.4, width: 1 },
-                move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
-            },
-            retina_detect: true
-        });
+        // Particle Background Function with Fallback
+        function initParticles() {
+            if (typeof tsParticles !== 'undefined') {
+                tsParticles.load("particle-container", {
+                    particles: {
+                        number: { 
+                            value: 50, 
+                            density: { 
+                                enable: true, 
+                                value_area: 800 
+                            } 
+                        },
+                        color: { value: "#e8491d" },
+                        shape: { type: "circle" },
+                        opacity: { value: 0.3, random: false },
+                        size: { value: 3, random: true },
+                        line_linked: { 
+                            enable: true, 
+                            distance: 150, 
+                            color: "#e8491d", 
+                            opacity: 0.4, 
+                            width: 1 
+                        },
+                        move: { 
+                            enable: true, 
+                            speed: 3, 
+                            direction: "none", 
+                            random: false, 
+                            straight: false, 
+                            out_mode: "out", 
+                            bounce: false 
+                        }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: { 
+                            onhover: { enable: true, mode: "repulse" }, 
+                            onclick: { enable: true, mode: "push" }, 
+                            resize: true 
+                        },
+                    },
+                    retina_detect: true
+                });
+            } else {
+                console.warn("tsParticles library not loaded. Background effect disabled.");
+            }
+        }
 
         // Scroll Reveal Animation
         function scrollReveal() {
@@ -329,9 +369,16 @@
             });
         }
 
-        window.addEventListener('scroll', () => {
-            scrollReveal();
-            animateSkillBars();
+        // Wait for page load and script to potentially load
+        window.addEventListener('load', () => {
+            // Initialize particles after a short delay
+            setTimeout(initParticles, 500);
+
+            // Scroll event listeners
+            window.addEventListener('scroll', () => {
+                scrollReveal();
+                animateSkillBars();
+            });
         });
 
         // Smooth Scrolling
